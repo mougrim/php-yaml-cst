@@ -1,0 +1,17 @@
+parameters:
+    level: max
+    phpVersion: 80400
+
+    paths:
+        - src
+        - tests
+
+    ignoreErrors:
+        # FFI dynamic method calls cannot be typed by PHPStan.
+        - message: '#^Call to an undefined method FFI::#'
+          path: src/YamlTreeSitterCore.php
+        - message: '#^Cannot cast mixed to int\.#'
+          path: src/YamlTreeSitterCore.php
+
+    excludePaths:
+        - vendor
