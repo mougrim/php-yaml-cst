@@ -10,6 +10,9 @@ jobs:
   build:
     name: Build & Test (PHP ${{ matrix.php-version }})
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.php-version }}
       cancel-in-progress: true
