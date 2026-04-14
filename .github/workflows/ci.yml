@@ -6,14 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.php-version }}
-  cancel-in-progress: true
-
 jobs:
   build:
     name: Build & Test (PHP ${{ matrix.php-version }})
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.php-version }}
+      cancel-in-progress: true
     strategy:
       matrix:
         php-version: ['8.4', '8.5']
