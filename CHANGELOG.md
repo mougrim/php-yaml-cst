@@ -16,11 +16,14 @@ Classes annotated `@internal` (e.g. `YamlIndexBuilder`, `YamlIndexNode`, `YamlLi
 
 ## [Unreleased]
 
+## [0.0.0]
+
 ### Added
 - Initial public release.
-- CI via GitHub Actions (PHP 8.4, 8.5): code style, PHPStan, PHPUnit.
+- CI via GitHub Actions (PHP 8.4, 8.5): code style, PHPStan, PHPUnit. ([#1](https://github.com/mougrim/php-yaml-cst/pull/1))
 
 ### Fixed
-- `YamlCstTreeTest::testCloneIsForbidden`: compatible with PHP 8.5, which changed the `__clone()` error message format (added word "method" after "private").
+- `YamlCstTreeTest::testCloneIsForbidden`: compatible with PHP 8.5, which changed the `__clone()` error message format (added word "method" after "private"). ([#1](https://github.com/mougrim/php-yaml-cst/pull/1))
 
-[Unreleased]: https://github.com/mougrim/php-yaml-cst/commits/main
+[Unreleased]: https://github.com/mougrim/php-yaml-cst/compare/0.0.0...HEAD
+[0.0.0]: https://github.com/mougrim/php-yaml-cst/releases/tag/0.0.0
