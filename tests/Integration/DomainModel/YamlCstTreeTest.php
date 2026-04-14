@@ -19,7 +19,11 @@ class YamlCstTreeTest extends IntegrationTestCase
         $document = $parser->parse('', $core);
         $tree = $document->tree;
         $this->expectException(Error::class);
-        $this->expectExceptionMessage('Call to private Mougrim\YamlCst\DomainModel\YamlCstTree::__clone() from scope Mougrim\YamlCst\Tests\Integration\DomainModel\YamlCstTreeTest');
+        // PHP 8.5 changed the error message format: added "method" after "private"
+        $expectedMessage = PHP_VERSION_ID >= 80500
+            ? 'Call to private method Mougrim\YamlCst\DomainModel\YamlCstTree::__clone() from scope Mougrim\YamlCst\Tests\Integration\DomainModel\YamlCstTreeTest'
+            : 'Call to private Mougrim\YamlCst\DomainModel\YamlCstTree::__clone() from scope Mougrim\YamlCst\Tests\Integration\DomainModel\YamlCstTreeTest';
+        $this->expectExceptionMessage($expectedMessage);
 
         /** @noinspection PhpExpressionResultUnusedInspection */
         /** @phpstan-ignore expr.resultUnused */
